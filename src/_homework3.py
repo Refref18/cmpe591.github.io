@@ -9,7 +9,8 @@ import torch.multiprocessing as mp
 import numpy as np
 
 import environment
-
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 class Hw3Env(environment.BaseEnv):
     def __init__(self, **kwargs) -> None:

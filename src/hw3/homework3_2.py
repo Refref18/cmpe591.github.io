@@ -3,7 +3,7 @@ import torchvision.transforms as transforms
 import numpy as np
 
 import environment
-from agent import Agent
+from agent_2 import SACAgent
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
@@ -149,7 +149,7 @@ class Hw3Env(environment.BaseEnv):
 if __name__ == "__main__":
     # Initialize the environment and the agent
     env = Hw3Env(render_mode="offscreen")
-    agent = Agent()
+    agent = SACAgent()
     num_episodes = 10000  # Number of episodes to train
 
     rews = []  # List to store cumulative rewards for each episode
@@ -193,7 +193,7 @@ if __name__ == "__main__":
             print(f"✨ New best model saved with reward: {best_reward}")
 
         # Log the total reward for the episode in a file
-        with open("model_total_reward_per_episode.txt", "a") as file:
+        with open("SAC_model_total_reward_per_episode.txt", "a") as file:
             file.write(f"{i},{cumulative_reward}\n")
 
     # Save the final best model and the rewards list
